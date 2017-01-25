@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlanetXamarinReader.Views.PlanetXamarinRSSPage">
+
+  <StackLayout Padding="0,10,0,0">
+
+    <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"/>
+
+    <ListView ItemsSource="{Binding RssFeedCollection}"
+                SeparatorVisibility="Default"
+                SeparatorColor="#3498db"
+                HasUnevenRows="True"
+                CachingStrategy="RecycleElement"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding GetRSSFeedPlanetXamarinCommand}"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                RowHeight="86"
+                ItemSelected="OnSelection"
+                x:Name="ListViewRSSPlanetXamarin">
+      <ListView.SeparatorColor>
+        <OnPlatform x:TypeArguments="Color" iOS="Transparent"/>
+      </ListView.SeparatorColor>
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Orientation="Horizontal" Padding="10,0,0,0">
+              <Image HeightRequest="60"
+                     WidthRequest="60"
+                     VerticalOptions="Center"
+                     Source="{Binding gravatar}"/>
+              <StackLayout Padding="10" Spacing="5">
+                <Label Text="{Binding title}"
+                       TextColor="#3498db"
+                       FontSize="22"
+                       Style="{DynamicResource ListItemTextStyle}"/>
+                <Label Text="{Binding pubDate}"
+                       Style="{DynamicResource ListItemDetailTextStyle}"/>
+                <Label Text="{Binding shortDescription}"
+                       Style="{DynamicResource ListItemDetailTextStyle}"/>
+              </StackLayout>
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
+  </StackLayout>
+  
+</ContentPage>

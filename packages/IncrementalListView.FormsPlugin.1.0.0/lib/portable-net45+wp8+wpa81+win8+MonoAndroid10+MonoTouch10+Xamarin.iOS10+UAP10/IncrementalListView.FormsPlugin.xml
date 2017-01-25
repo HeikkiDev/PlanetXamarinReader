@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IncrementalListView.FormsPlugin</name>
+    </assembly>
+    <members>
+        <member name="T:IncrementalListView.FormsPlugin.IncrementalListView">
+            <summary>
+            IncrementalListView Interface
+            </summary>
+        </member>
+        <member name="F:IncrementalListView.FormsPlugin.IncrementalListView.PreloadCountProperty">
+            <summary>
+            Identifies the <see cref="P:IncrementalListView.FormsPlugin.IncrementalListView.PreloadCount"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:IncrementalListView.FormsPlugin.IncrementalListView.PreloadCount">
+            <summary>
+            How many cells before the end of the ListView before incremental loading should start. Defaults to 0, meaning the end of the list has to be reached before it will try to load more. This is a bindable property.
+            </summary>
+        </member>
+    </members>
+</doc>
